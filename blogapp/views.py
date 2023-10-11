@@ -19,3 +19,20 @@ class PostCreateView(CreateView):
     template_name = 'post_create_template.html'
     fields = ['title', 'body', 'author']
     success_url = reverse_lazy('post_list_url')
+
+class StoryListView(ListView):
+    model = Story
+    context_object_name = "stories"
+    template_name = 'story_list_template.html'
+
+class StoryDetailView(DetailView):
+    model = Story
+    context_object_name = 'story'
+    template_name = 'story_detail_template.html'
+
+class StoryCreateView(CreateView):
+    model = Story
+    template_name = 'story_create_template.html'
+    fields = ['expired_at', 'body', 'author']
+    success_url = reverse_lazy('story_list_url')
+

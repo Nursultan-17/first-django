@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>story list view</title>
+</head>
+<body>
+    <h2>Просто выгружаем переменную: {{ stories }}</h2>
+    <a href="{% url 'story_create_url' %}">Create New Post</a>
+    <h2>Через цикл:</h2>
+    {% for i in Stories %}
+        <h3>{{ i.id }}.{{ i.author }}.{{i.expired_at }} - {{ i.body }}</h3>
+        <a href="{% url 'story_detail_url' i.id %}">Show Story</a>
+    {% endfor %}
+
+</body>
+</html>

@@ -14,7 +14,7 @@ def __str__(self):
 class Story(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     body = models.TextField()
-    in_active = models.BooleanField(True)
+    in_active = models.BooleanField(default=True)
     created_at = models.DateTimeField(auto_now_add=True)
     expired_at = models.DateTimeField()
 

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Flower list view</title>
+</head>
+<body>
+    <a href="{% url 'flower_create_url' %}">Create New Flower</a>
+    <a href="{% url 'post_list_url' %}"> Show Posts </a>
+    <a href="{% url 'story_list_url' %}">Show Stories</a>
+    {% for flower in flowers %}
+        <h3>{{ flower.id }} - {{ flower.name }}</h3>
+        <a href="{% url 'flower_detail_url' flower.id %}">Show Flower</a>
+    {% endfor %}
+
+</body>
+</html>

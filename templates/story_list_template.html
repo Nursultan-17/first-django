@@ -5,11 +5,11 @@
     <title>story list view</title>
 </head>
 <body>
-    <h2>Просто выгружаем переменную: {{ stories }}</h2>
     <a href="{% url 'story_create_url' %}">Create New Post</a>
-    <h2>Через цикл:</h2>
+    <a href="{% url 'post_list_url' %}"> Show Posts </a>
+    <a href="{% url 'flower_list_url' %}">Show Flowers</a>
     {% for story in stories %}
-        <h3>{{ story.id }}.{{ story.author }}.{{story.expired_at }} - {{ story.body }}</h3>
+        <h3>{{ story.id }}.{{ story.author }}.{{story.expired_at }}.{{story.created_at }} - {{ story.body }}</h3>
         <a href="{% url 'story_detail_url' story.id %}">Show Story</a>
     {% endfor %}
 

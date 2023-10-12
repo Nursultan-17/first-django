@@ -52,3 +52,25 @@ class FlowerCreateView(CreateView):
     fields = ['name', 'color']
     success_url = reverse_lazy('flower_list_url')
 
+
+def CarsView(request):
+    cars = Car.objects.all()
+    context = {
+            'cars': cars,
+        }
+    return render(request=request, template_name='cars_template.html', context=context)
+
+
+def CarDetailView(request, car_id):
+    car = Car.objects.get(id=car_id)
+    context = {
+        'car': car
+    }
+    return render(request=request, template_name='car_detail_template.html', context=context)
+
+def CarFView(request, car_brand):
+    car = Car.objects.filter(brand=car_brand)
+    context = {
+        'car': car
+    }
+    return render(request=request, template_name='carf_template.html', context=context)

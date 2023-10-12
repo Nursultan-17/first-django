@@ -26,5 +26,10 @@ class Flower(models.Model):
     color = models.CharField(max_length=20)
 
 
+class Car(models.Model):
+    brand = models.CharField(max_length=100)
+    model = models.CharField(max_length=100)
+    color = models.CharField(max_length=20)
+    price = models.CharField(max_length=20)
 
-# Create your models here.
+

@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>car F</title>
+</head>
+<body>
+<a href="{%url 'cars_url'%}">Get Cars list</a>
+<ul>
+    {% for car in car %}
+       <li>{{ car.brand }},{{car.model}},{{ car.color }},{{ car.price }}</li>
+</ul>
+</body>
+</html>

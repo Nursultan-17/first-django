@@ -6,8 +6,11 @@
 </head>
 <body>
     <a href="{% url 'post_create_url' %}">Create New Post</a>
+    <br>
     <a href="{% url 'story_list_url' %}">Show Stories</a>
+    <br>
     <a href="{% url 'flower_list_url' %}">Show Flowers</a>
+    <br>
     {% for post in posts %}
         <h3>{{ post.id }}.{{ post.title }} - {{ post.body }}</h3>
         <a href="{% url 'post_detail_url' post.id %}">Show Post</a>

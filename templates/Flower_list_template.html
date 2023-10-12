@@ -6,8 +6,11 @@
 </head>
 <body>
     <a href="{% url 'flower_create_url' %}">Create New Flower</a>
+    <br>
     <a href="{% url 'post_list_url' %}"> Show Posts </a>
+    <br>
     <a href="{% url 'story_list_url' %}">Show Stories</a>
+    <br>
     {% for flower in flowers %}
         <h3>{{ flower.id }} - {{ flower.name }}</h3>
         <a href="{% url 'flower_detail_url' flower.id %}">Show Flower</a>

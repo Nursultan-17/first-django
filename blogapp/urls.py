@@ -14,5 +14,5 @@ urlpatterns = [
     path('flower/create', FlowerCreateView.as_view(), name='flower_create_url'),
     path('cars', CarsView, name='cars_url'),
     path('car/<int:car_id>', CarDetailView, name='car_detail_url'),
-    path('car/<str:car_brand>', CarFView, name='carf_url'),
+    path('cars/<str:car_brand>', CarFView, name='carf_url'),
 ]

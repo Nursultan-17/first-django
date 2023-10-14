@@ -5,6 +5,12 @@
     <title>cars template</title>
 </head>
 <body>
+    <a href="{% url 'post_list_url' %}"> Show Posts </a>
+    <br>
+    <a href="{% url 'flower_list_url' %}">Show Flowers</a>
+    <br>
+    <a href="{% url 'story_list_url' %}">Show Stories</a>
+    <br>
     <ul>
         {% for car in cars %}
             <li>{{ car.brand }} - {{car.model}}</li>

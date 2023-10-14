@@ -11,6 +11,8 @@
     <br>
     <a href="{% url 'flower_list_url' %}">Show Flowers</a>
     <br>
+    <a href="{%url 'cars_url'%}">Show Cars</a>
+    <br>
     {% for story in stories %}
         <h3>{{ story.id }}.{{ story.author }}.{{story.expired_at }}.{{story.created_at }} - {{ story.body }}</h3>
         <a href="{% url 'story_detail_url' story.id %}">Show Story</a>

@@ -5,10 +5,12 @@
     <title>car F</title>
 </head>
 <body>
-<a href="{%url 'cars_url'%}">Get Cars list</a>
+    <a href="{%url 'cars_url'%}">Get Cars list</a>
+    <br>
 <ul>
     {% for car in car %}
        <li>{{ car.brand }},{{car.model}},{{ car.color }},{{ car.price }}</li>
+    {% endfor %}
 </ul>
 </body>
 </html>

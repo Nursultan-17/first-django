@@ -1,10 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>cars template</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
     <a href="{% url 'post_list_url' %}"> Show Posts </a>
     <br>
     <a href="{% url 'flower_list_url' %}">Show Flowers</a>
@@ -21,5 +17,4 @@
             </p>
         {% endfor %}
     </ul>
-</body>
-</html>
+{% endblock %}

@@ -1,10 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>story list view</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
     <a href="{% url 'story_create_url' %}">Create New Stories</a>
     <br>
     <a href="{% url 'post_list_url' %}"> Show Posts </a>
@@ -20,5 +17,4 @@
         <a href="{% url 'story_detail_url' story.id %}">Show Story</a>
     {% endfor %}
 
-</body>
-</html>
+{% endblock %}

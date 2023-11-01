@@ -1,10 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Flower list view</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
     <a href="{% url 'flower_create_url' %}">Create New Flower</a>
     <br>
     <a href="{% url 'post_list_url' %}"> Show Posts </a>
@@ -20,5 +16,4 @@
         <a href="{% url 'flower_detail_url' flower.id %}">Show Flower</a>
     {% endfor %}
 
-</body>
-</html>
+{% endblock %}

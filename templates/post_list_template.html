@@ -1,10 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Post List Template</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
     <a href="{% url 'post_create_url' %}">Create New Post</a>
     <br>
     <a href="{% url 'story_list_url' %}">Show Stories</a>
@@ -19,5 +16,5 @@
         <h3>{{ post.id }}.{{ post.title }} - {{ post.body }}</h3>
         <a href="{% url 'post_detail_url' post.id %}">Show Post</a>
     {% endfor %}
-</body>
-</html>
+
+{% endblock %}

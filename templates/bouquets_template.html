@@ -1,10 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Bouquets</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
     <a href="{% url 'story_create_url' %}">Create New Stories</a>
     <br>
     <a href="{% url 'post_list_url' %}"> Show Posts </a>
@@ -19,5 +16,4 @@
         <h3>{{ bouquet.name }}</h3>
         <a href="{% url 'bouquets_detail_url' bouquet.id %}">Get Info</a>
     {% endfor %}
-</body>
-</html>
+{% endblock %}

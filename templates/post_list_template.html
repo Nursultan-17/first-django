@@ -13,6 +13,8 @@
     <br>
     <a href="{%url 'cars_url'%}">Show Cars</a>
     <br>
+    <a href="{% url 'bouquets_url' %}">Show Bouquets</a>
+    <br>
     {% for post in posts %}
         <h3>{{ post.id }}.{{ post.title }} - {{ post.body }}</h3>
         <a href="{% url 'post_detail_url' post.id %}">Show Post</a>

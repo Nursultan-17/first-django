@@ -25,6 +25,18 @@ class Flower(models.Model):
     name = models.CharField(max_length=100)
     color = models.CharField(max_length=20)
 
+    def __str__(self):
+        return str(self.name) + ' - ' + str(self.color)
+
+class Bouquet(models.Model):
+    name = models.CharField(max_length=100)
+    flowers = models.ManyToManyField('Flower')
+    # ManyToMany по умолчанию может быть пустым, поэтому для него on_delete е требуется
+
+    def __str__(self):
+        return self.name
+
+
 
 class Car(models.Model):
     brand = models.CharField(max_length=100)

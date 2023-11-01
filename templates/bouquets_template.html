@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>story list view</title>
+    <title>Bouquets</title>
 </head>
 <body>
     <a href="{% url 'story_create_url' %}">Create New Stories</a>
@@ -13,12 +13,11 @@
     <br>
     <a href="{%url 'cars_url'%}">Show Cars</a>
     <br>
-    <a href="{% url 'bouquets_url' %}">Show Bouquets</a>
-    <br>
-    {% for story in stories %}
-        <h3>{{ story.id }}.{{ story.author }}.{{story.expired_at }}.{{story.created_at }} - {{ story.body }}</h3>
-        <a href="{% url 'story_detail_url' story.id %}">Show Story</a>
+    <h1>Our Bouquets:</h1>
+    <a href="{% url 'bouquets_create_url' %}">Create New Bouquet</a>
+    {% for bouquet in bouquets %}
+        <h3>{{ bouquet.name }}</h3>
+        <a href="{% url 'bouquets_detail_url' bouquet.id %}">Get Info</a>
     {% endfor %}
-
 </body>
 </html>

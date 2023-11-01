@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import *
 from django.urls import reverse_lazy
 from django.views.generic import ListView, CreateView, UpdateView, DetailView, DeleteView
@@ -74,3 +74,55 @@ def CarFView(request, car_brand):
         'car': car
     }
     return render(request=request, template_name='carf_template.html', context=context)
+
+
+def BouquetsView(request):
+    bouquets = Bouquet.objects.all()
+    context = {
+        'bouquets': bouquets
+    }
+    return render(request=request, template_name='bouquets_template.html', context=context)
+
+
+def BouquetsDetailView(request, bouquet_id):
+    bouquet = Bouquet.objects.get(id=bouquet_id)
+    context = {
+        'bouquet': bouquet
+    }
+    return render(request=request, template_name='bouquet_detail_template.html', context=context)
+
+
+def BouquetsCreateView(request):
+    if request.method == 'GET':
+        flowers = Flower.objects.all()
+        context = {
+            'flowers': flowers
+        }
+        return render(request=request, template_name='bouquet_create_template.html', context=context)
+    elif request.method == 'POST':
+        name = request.POST.get('name')
+        flowers = request.POST.getlist('flowers')
+        bouquet = Bouquet(name=name)
+        bouquet.save()
+        for flower in flowers:
+            bouquet.flowers.add(Flower.objects.get(id=flower))
+        bouquet.save()
+        return redirect('bouquets_url')
+
+def BouquetUpdateView(request, bouquet_id):
+    bouquet = Bouquet.objects.get(id=bouquet_id)
+    if request.method == 'GET':
+        flowers = Flower.objects.all()
+        context = {
+            'bouquet': bouquet,
+            'flowers': flowers
+        }
+        return render(request=request, template_name='bouquet_update_template.html', context=context)
+    elif request.method == 'POST':
+        bouquet.name = request.POST.get('name')
+        flowers = request.POST.getlist('flowers')
+        bouquet.flowers.clear()
+        for flower in flowers:
+            bouquet.flowers.add(Flower.objects.get(id=flower))
+        bouquet.save()
+        return redirect('bouquets_detail_url', bouquet_id)
